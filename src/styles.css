@@ -1,0 +1,94 @@
+/* -------- RESET AND BASIC PAGE STYLES -------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f6f8fa;
+    color: #343a40;
+  }
+  
+  /* -------- CONTAINER STYLING -------- */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .top-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  
+  .dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .bars-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 1.5rem;
+    height: 300px;
+    background: #fff;
+    border-radius: 6px;
+    border: 2px solid #dee2e6;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  /* -------- BAR STYLING -------- */
+  .bar {
+    background-color: #0d6efd;
+    margin: 0 2px;
+    display: inline-block;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    width: 20px;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .highlight {
+    background-color: #ffc107;
+  }
+  
+  /* -------- BUTTONS, SELECTS, & SLIDERS -------- */
+  button, select, input[type="range"] {
+    font-size: 1rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    background: #ffffff;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  button:hover {
+    background: #e2e6ea;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  label {
+    font-weight: 600;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  

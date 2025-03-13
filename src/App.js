@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AlgorithmDropdowns from './components/AlgorithmDropdowns.jsx';
+import SortingVisualizer from './components/SortingVisualizer.jsx';
+import SearchingVisualizer from './components/SearchingVisualizer.jsx';
 
 function App() {
+  const [algoType, setAlgoType] = useState('sorting'); // "sorting" or "searching"
+  const [selectedAlgo, setSelectedAlgo] = useState('insertion-sort');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      {/* Dropdowns at the top */}
+      <AlgorithmDropdowns
+        algoType={algoType}
+        setAlgoType={setAlgoType}
+        selectedAlgo={selectedAlgo}
+        setSelectedAlgo={setSelectedAlgo}
+      />
+
+      {/* Depending on algoType, show Sorting or Searching visualizer */}
+      {algoType === 'sorting' ? (
+        <SortingVisualizer selectedAlgo={selectedAlgo} />
+      ) : (
+        <SearchingVisualizer selectedAlgo={selectedAlgo} />
+      )}
     </div>
   );
 }
