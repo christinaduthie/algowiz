@@ -11,16 +11,13 @@ function SortingVisualizer({ selectedAlgo }) {
   const animIntervalRef = useRef(null);
   const currentStepRef = useRef(0);
 
-  // Generate a random array once on mount
   useEffect(() => {
     generateRandomArray();
   }, []);
 
-  // Generate random array
   const generateRandomArray = () => {
     const newArr = [];
-    for (let i = 0; i < 20; i++) {
-      // values between 5 and 100
+    for (let i = 0; i < 25; i++) {
       newArr.push(Math.floor(Math.random() * 96) + 5);
     }
     setArray(newArr);
@@ -29,7 +26,6 @@ function SortingVisualizer({ selectedAlgo }) {
     clearInterval(animIntervalRef.current);
   };
 
-  // Handle sorting
   const handleSort = () => {
     let generatedAnimations;
     switch (selectedAlgo) {
@@ -37,7 +33,8 @@ function SortingVisualizer({ selectedAlgo }) {
         generatedAnimations = insertionSortAnimations([...array]);
         break;
       default:
-        // For stubs like bubble-sort or quick-sort, you could fill in your own logic
+        // If user picks bubble-sort or quick-sort (stub),
+        // we're currently reusing insertion sort for demonstration
         generatedAnimations = insertionSortAnimations([...array]);
         break;
     }
@@ -60,18 +57,15 @@ function SortingVisualizer({ selectedAlgo }) {
     }, speed);
   };
 
-  // Pause
   const handlePause = () => {
     setIsRunning(false);
     clearInterval(animIntervalRef.current);
   };
 
-  // Handle speed change
   const handleSpeedChange = (e) => {
     const newSpeed = Number(e.target.value);
     setSpeed(newSpeed);
 
-    // If currently running, reset interval with new speed
     if (isRunning) {
       clearInterval(animIntervalRef.current);
       animIntervalRef.current = setInterval(() => {
@@ -90,6 +84,7 @@ function SortingVisualizer({ selectedAlgo }) {
 
   return (
     <div>
+      {/* Some control buttons plus the speed slider */}
       <div className="top-controls">
         <button onClick={generateRandomArray} disabled={isRunning}>
           Generate New Array
@@ -114,13 +109,14 @@ function SortingVisualizer({ selectedAlgo }) {
         </div>
       </div>
 
+      {/* Bars display */}
       <div className="bars-container">
         {array.map((value, idx) => (
           <div
             key={idx}
             className={`bar ${idx === highlightedIndex ? 'highlight' : ''}`}
             style={{
-              height: `${value * 2}px`
+              height: `${value * 3}px`, // slightly taller bars for visibility
             }}
           ></div>
         ))}

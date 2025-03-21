@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Dropdowns at the top */}
+      {/* Our "top" area with dropdowns; styled as a sticky header via CSS */}
       <AlgorithmDropdowns
         algoType={algoType}
         setAlgoType={setAlgoType}
@@ -17,7 +17,7 @@ function App() {
         setSelectedAlgo={setSelectedAlgo}
       />
 
-      {/* Depending on algoType, show Sorting or Searching visualizer */}
+      {/* Main content area showing either sorting or searching */}
       {algoType === 'sorting' ? (
         <SortingVisualizer selectedAlgo={selectedAlgo} />
       ) : (

@@ -4,18 +4,19 @@ function AlgorithmDropdowns({ algoType, setAlgoType, selectedAlgo, setSelectedAl
   const sortingAlgos = [
     { label: 'Insertion Sort', value: 'insertion-sort' },
     { label: 'Bubble Sort (stub)', value: 'bubble-sort' },
-    { label: 'Quick Sort (stub)', value: 'quick-sort' }
+    { label: 'Quick Sort (stub)', value: 'quick-sort' },
   ];
 
   const searchingAlgos = [
     { label: 'Linear Search (stub)', value: 'linear-search' },
-    { label: 'Binary Search (stub)', value: 'binary-search' }
+    { label: 'Binary Search (stub)', value: 'binary-search' },
   ];
 
   const currentOptions = algoType === 'sorting' ? sortingAlgos : searchingAlgos;
 
   return (
     <div className="top-controls">
+      {/* Dropdown for sorting vs searching */}
       <div className="dropdown-container">
         <label htmlFor="algoTypeSelect">Category:</label>
         <select
@@ -28,6 +29,7 @@ function AlgorithmDropdowns({ algoType, setAlgoType, selectedAlgo, setSelectedAl
         </select>
       </div>
 
+      {/* Dropdown for specific algorithm */}
       <div className="dropdown-container">
         <label htmlFor="specificAlgoSelect">Algorithm:</label>
         <select
